@@ -1,0 +1,408 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Merchants-API-V1",
+        "description": "Swagger Documentation for Merchants-API-V1",
+        "version": "v1.0.0"
+    },
+    "paths": {
+        "/merchant": {
+            "summary": "To fetch the nerchant details",
+            "x-description": "To fetch the nerchant details",
+            "get": {
+                "operationId": "getMerchantDetail",
+                "summary": "To fetch the merchant details",
+                "description": "To fetch the merchant details",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/getMerchantResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "Not Acceptable\n\n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests\n\n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error\n\n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Not Implemented\n\n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Authorization"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Accept"
+                    },
+                    {
+                        "$ref": "#/components/parameters/purpleKey"
+                    },
+                    {
+                        "$ref": "#/components/parameters/channelId"
+                    }
+                ],
+                "x-gw-metadata": [
+                    {
+                        "x-gw-cache-resource": [
+                            "Merchants_GetMerchantDetail_CacheResource"
+                        ]
+                    },
+                    {
+                        "x-gw-cache-timeout-unit": [
+                            "seconds"
+                        ]
+                    },
+                    {
+                        "x-gw-cache-timeout": [
+                            "300"
+                        ]
+                    },
+                    {
+                        "x-gw-cache-key": [
+                            "request.uri"
+                        ]
+                    }
+                ],
+                "tags": [
+                    "Merchant"
+                ]
+            }
+        }
+    },
+    "servers": [
+        {
+            "x-name": "UAT Server",
+            "x-hostName": "uatapi.tonikbank.com",
+            "url": "https://uatapi.tonikbank.com/v1/merchants",
+            "x-schema": "https://",
+            "x-basePath": "/v1/merchants",
+            "description": "UAT Server"
+        },
+        {
+            "x-name": "DEV Server",
+            "x-hostName": "devapi.tonikbank.com",
+            "url": "https://devapi.tonikbank.com/v1/merchants",
+            "x-schema": "https://",
+            "x-basePath": "/v1/merchants",
+            "description": "DEV Server"
+        },
+        {
+            "x-name": "TEST Server",
+            "x-schema": "https://",
+            "x-hostName": "testapi.tonikbank.com",
+            "url": "https://testapi.tonikbank.com/v1/merchants",
+            "x-basePath": "/v1/merchants",
+            "description": "TEST Server"
+        },
+        {
+            "x-name": "Sandbox Server",
+            "x-schema": "https://",
+            "x-hostName": "sandboxapi.tonikbank.com",
+            "url": "https://sandboxapi.tonikbank.com/v1/merchants",
+            "x-basePath": "/v1/merchants",
+            "description": "Sandbox Server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Merchant",
+            "description": "Merchant"
+        }
+    ],
+    "security": [
+        {
+            "oAuth2": [
+                "tonik:read:write"
+            ]
+        }
+    ],
+    "components": {
+        "parameters": {
+            "Authorization": {
+                "name": "Authorization",
+                "required": true,
+                "style": "simple",
+                "in": "header",
+                "description": "Bearer access token",
+                "example": "Bearer tixEmRm8lSitF5GMssnN4HaaQTZn",
+                "schema": {
+                    "description": "",
+                    "type": "string"
+                }
+            },
+            "Accept": {
+                "name": "Accept",
+                "required": true,
+                "style": "simple",
+                "in": "header",
+                "schema": {
+                    "description": "",
+                    "type": "string"
+                },
+                "description": "Accept Header",
+                "example": "application/json"
+            },
+            "purpleKey": {
+                "name": "purpleKey",
+                "required": true,
+                "style": "form",
+                "in": "query",
+                "description": "Purple Key",
+                "example": "PMM018",
+                "schema": {
+                    "description": "Purple Key",
+                    "type": "string"
+                }
+            },
+            "channelId": {
+                "name": "channelId",
+                "required": true,
+                "style": "form",
+                "in": "query",
+                "description": "Channel ID",
+                "example": "promoter",
+                "schema": {
+                    "description": "",
+                    "type": "string"
+                }
+            }
+        },
+        "securitySchemes": {
+            "oAuth2": {
+                "type": "oauth2",
+                "description": "",
+                "flows": {
+                    "clientCredentials": {
+                        "tokenUrl": "https://uatapi.tonikbank.com/v1/security/oauth-token",
+                        "scopes": {
+                            "tonik:read:write": "Tonik Global Scopes"
+                        }
+                    }
+                }
+            }
+        },
+        "schemas": {
+            "Meta": {
+                "description": "Meta data of the response",
+                "type": "object",
+                "properties": {
+                    "totalPages": {
+                        "type": "number",
+                        "description": "Total number of pages",
+                        "example": "1"
+                    }
+                },
+                "required": [
+                    "totalPages"
+                ]
+            },
+            "Status": {
+                "description": "Response status information",
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Status code of the response",
+                        "example": "00"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Status message of the response",
+                        "example": "Success"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ]
+            },
+            "getMerchantResponse": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "example": 54,
+                                "description": "Merchant ID"
+                            },
+                            "merchantName": {
+                                "type": "string",
+                                "example": "Home Along Malabon",
+                                "description": "Merchant Name"
+                            },
+                            "merchantCategory": {
+                                "type": "string",
+                                "example": "Furniture",
+                                "description": "Merchant Category"
+                            },
+                            "merchantRefCode": {
+                                "type": "string",
+                                "example": "M190OQY",
+                                "description": "Merchant Refernce Code"
+                            },
+                            "isEnabled": {
+                                "type": "boolean",
+                                "example": true,
+                                "description": "Is an Active Merchant or not"
+                            }
+                        },
+                        "type": "object",
+                        "description": "Merchant  details",
+                        "required": [
+                            "id",
+                            "merchantName",
+                            "merchantCategory",
+                            "merchantRefCode",
+                            "isEnabled"
+                        ]
+                    },
+                    "meta": {
+                        "$ref": "#/components/schemas/Meta"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/Status"
+                    }
+                },
+                "required": [
+                    "data",
+                    "meta",
+                    "status"
+                ]
+            },
+            "ErrorSchema": {
+                "type": "object",
+                "required": [
+                    "errors"
+                ],
+                "properties": {
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string",
+                                    "example": "Security-1016",
+                                    "description": "Error code"
+                                },
+                                "userMessage": {
+                                    "type": "string",
+                                    "example": "Please check the request variables and try again later.",
+                                    "description": "Detailed message of the error"
+                                },
+                                "info": {
+                                    "type": "string",
+                                    "example": "https://developers.myapi.com/errors/#Security-1016",
+                                    "description": "Additional information about the error"
+                                }
+                            },
+                            "required": [
+                                "code",
+                                "userMessage"
+                            ]
+                        },
+                        "description": "Error representing Array"
+                    }
+                }
+            }
+        }
+    },
+    "x-mock": true,
+    "x-metadata": {
+        "metadata": {
+            "swaggerName": "48789e6e9a90465b89b1b42b599bb5d7",
+            "revision": 1,
+            "documentation": [],
+            "category": [
+                {
+                    "name": "Unsorted",
+                    "paths": []
+                },
+                {
+                    "name": "Merchant",
+                    "paths": [
+                        "/merchant"
+                    ],
+                    "definitions": []
+                }
+            ]
+        }
+    }
+}
